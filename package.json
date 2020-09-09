@@ -1,8 +1,8 @@
 {
-  "name": "primeiro-projeto-node",
+  "name": "iniciando-back-end",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/MarcoCPinho/primeiro-projeto-node.git",
+  "repository": "https://github.com/MarcoCPinho/iniciando-back-end.git",
   "author": "MarcoCPinho <marcocpinho@hotmail.com>",
   "license": "MIT",
   "scripts": {
