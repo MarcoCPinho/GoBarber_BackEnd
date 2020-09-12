@@ -9,7 +9,7 @@
             "type": "node",
             "request": "attach",
             "protocol": "inspector",
-            "restart": false,
+            "restart": true,
             "name": "Debug",
             "skipFiles": [
                 "<node_internals>/**"
