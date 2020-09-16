@@ -20,12 +20,12 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier",
+    "prettier"
   ],
   "rules": {
     "prettier/prettier": "error",
     "class-methods-use-this": "off",
-    "@typescript-eslint/camelcase": "off",
+    "camelcase": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
