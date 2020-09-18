@@ -10,7 +10,11 @@ interface RequestDTO {
 }
 
 class CreateUserService {
-    async execute({ name, email, password }: RequestDTO): Promise<User> {
+    async execute({
+        name,
+        email,
+        password,
+    }: RequestDTO): Promise<Omit<User, 'Password'>> {
         const usersRepository = getRepository(User);
 
         const checkUserExists = await usersRepository.findOne({
