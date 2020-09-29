@@ -3,6 +3,12 @@ import { verify } from 'jsonwebtoken';
 
 import authConfig from '../config/auth';
 
+interface TokenPayLoad {
+    iat: number;
+    exp: number;
+    sub: string;
+}
+
 export default function ensureAuthenticated(
     request: Request,
     response: Response,
@@ -20,5 +26,17 @@ export default function ensureAuthenticated(
 
     const [, token] = authHeader.split(' ');
 
-    const decoded = verify(token, authConfig.jwt.secret);
+    try {
+        const decoded = verify(token, authConfig.jwt.secret);
+
+        const { sub } = decoded as TokenPayLoad;
+
+        request.user = {
+            id: sub,
+        };
+
+        return next();
+    } catch (err) {
+        throw new Error('Invalid JWT token');
+    }
 }
