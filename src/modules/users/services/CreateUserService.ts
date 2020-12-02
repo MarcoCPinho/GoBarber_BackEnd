@@ -1,4 +1,5 @@
 import { hash } from 'bcryptjs';
+import { inject, injectable } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 
@@ -11,8 +12,12 @@ interface IRequestDTO {
     password: string;
 }
 
+@injectable()
 class CreateUserService {
-    constructor(private usersRepository: IUsersRepository) {}
+    constructor(
+        @inject('usersRepository')
+        private usersRepository: IUsersRepository,
+    ) {}
 
     async execute({
         name,
