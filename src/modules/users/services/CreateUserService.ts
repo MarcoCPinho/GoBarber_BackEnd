@@ -1,44 +1,47 @@
-import { hash } from 'bcryptjs';
 import { inject, injectable } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
+import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
 interface IRequestDTO {
-    name: string;
-    email: string;
-    password: string;
+  name: string;
+  email: string;
+  password: string;
 }
 
 @injectable()
 class CreateUserService {
-    constructor(
-        @inject('usersRepository')
-        private usersRepository: IUsersRepository,
-    ) {}
+  constructor(
+    @inject('usersRepository')
+    private usersRepository: IUsersRepository,
 
-    async execute({
-        name,
-        email,
-        password,
-    }: IRequestDTO): Promise<Omit<User, 'Password'>> {
-        const checkUserExists = await this.usersRepository.findByEmail(email);
+    @inject('HashProvider')
+    private hashProvider: IHashProvider,
+  ) {}
 
-        if (checkUserExists) {
-            throw new AppError('Email address already used.');
-        }
+  async execute({
+    name,
+    email,
+    password,
+  }: IRequestDTO): Promise<Omit<User, 'Password'>> {
+    const checkUserExists = await this.usersRepository.findByEmail(email);
 
-        const hashedPassword = await hash(password, 8);
-
-        const user = await this.usersRepository.create({
-            name,
-            email,
-            password: hashedPassword,
-        });
-
-        return user;
+    if (checkUserExists) {
+      throw new AppError('Email address already used.');
     }
+
+    const hashedPassword = await this.hashProvider.generateHash(password);
+
+    const user = await this.usersRepository.create({
+      name,
+      email,
+      password: hashedPassword,
+    });
+
+    return user;
+  }
 }
 export default CreateUserService;
