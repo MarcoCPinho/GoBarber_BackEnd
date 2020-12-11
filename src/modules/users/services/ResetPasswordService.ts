@@ -16,7 +16,7 @@ interface IRequestDTO {
 @injectable()
 class ResetPasswordService {
   constructor(
-    @inject('usersRepository')
+    @inject('UsersRepository')
     private usersRepository: IUsersRepository,
 
     @inject('UserTokensRepository')

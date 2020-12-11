@@ -1,7 +1,7 @@
 import { sign } from 'jsonwebtoken';
-import authConfig from '@config/auth';
 import { inject, injectable } from 'tsyringe';
 
+import authConfig from '@config/auth';
 import AppError from '@shared/errors/AppError';
 
 import User from '../infra/typeorm/entities/User';
@@ -21,7 +21,7 @@ interface IResponseDTO {
 @injectable()
 class AuthenticateUserService {
   constructor(
-    @inject('usersRepository')
+    @inject('UsersRepository')
     private usersRepository: IUsersRepository,
 
     @inject('HashProvider')

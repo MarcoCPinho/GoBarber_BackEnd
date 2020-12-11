@@ -15,7 +15,7 @@ interface IRequestDTO {
 @injectable()
 class SendForgotEmailPasswordService {
   constructor(
-    @inject('usersRepository')
+    @inject('UsersRepository')
     private usersRepository: IUsersRepository,
 
     @inject('MailProvider')
@@ -34,7 +34,7 @@ class SendForgotEmailPasswordService {
 
     await this.userTokensRepository.generate(checkUserExists.id);
 
-    this.mailProvider.sendMail(
+    await this.mailProvider.sendMail(
       email,
       'Pedido de recuperação de senha recebido',
     );
