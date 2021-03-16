@@ -11,6 +11,7 @@ const providersController = new ProvidersController();
 providersRouter.use(ensureAuthenticated);
 
 providersRouter.get('/', providersController.index);
+
 providersRouter.get(
   '/:provider_id/day-availability',
   providerDayAvailabilityController.index,
