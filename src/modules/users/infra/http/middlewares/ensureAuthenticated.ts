@@ -4,38 +4,38 @@ import { verify } from 'jsonwebtoken';
 import authConfig from '@config/auth';
 import AppError from '@shared/errors/AppError';
 
-interface TokenPayLoad {
-    iat: number;
-    exp: number;
-    sub: string;
+interface ITokenPayLoad {
+  iat: number;
+  exp: number;
+  sub: string;
 }
 
 export default function ensureAuthenticated(
-    request: Request,
-    response: Response,
-    next: NextFunction,
+  request: Request,
+  response: Response,
+  next: NextFunction,
 ): void {
-    // Validação do TokenJWT
+  // Validação do TokenJWT
 
-    const authHeader = request.headers.authorization;
+  const authHeader = request.headers.authorization;
 
-    if (!authHeader) {
-        throw new AppError('JWT token is missing', 401);
-    }
+  if (!authHeader) {
+    throw new AppError('JWT token is missing', 401);
+  }
 
-    const [, token] = authHeader.split(' ');
+  const [, token] = authHeader.split(' ');
 
-    try {
-        const decoded = verify(token, authConfig.jwt.secret);
+  try {
+    const decoded = verify(token, authConfig.jwt.secret);
 
-        const { sub } = decoded as TokenPayLoad;
+    const { sub } = decoded as ITokenPayLoad;
 
-        request.user = {
-            id: sub,
-        };
+    request.user = {
+      id: sub,
+    };
 
-        return next();
-    } catch (err) {
-        throw new AppError('Invalid JWT token', 401);
-    }
+    return next();
+  } catch (err) {
+    throw new AppError('Invalid JWT token', 401);
+  }
 }
