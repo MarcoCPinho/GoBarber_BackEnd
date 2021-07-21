@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-
+import { classToClass } from 'class-transformer';
 import { container } from 'tsyringe';
 
 import CreateAppointmentsService from '@modules/appointments/services/CreateAppointmentService';
@@ -17,6 +17,6 @@ export default class AppointmentController {
       user_id,
     });
 
-    return response.json(appointment);
+    return response.json(classToClass(appointment));
   }
 }
