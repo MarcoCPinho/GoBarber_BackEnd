@@ -3,7 +3,6 @@
 ## Used technologies:
 -> Eslint + TS (linter -> ES2021) </br>
 -> Jest (unitary tests) </br>
--> Typescript</br>
 -> TypeORM (migrations) </br>
 -> Redis (cache) </br>
 -> Postgres + Mongo (db) </br>
