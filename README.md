@@ -11,6 +11,5 @@
 -> Bcrypt (criptografia) </br>
 
 ## Conceitos aplicados:
--> SOLID;
--> 
-
+-> SOLID; </br>
+-> MVC
