@@ -1,7 +1,7 @@
 # Backend with NodeJS
 
 ## Used technologies:
--> Eslint + TS (linter -> ES2021) </br>
+-> Eslint + TS (lintner -> ES2021) </br>
 -> Jest (unitary tests) </br>
 -> TypeORM (migrations) </br>
 -> Redis (cache) </br>
