@@ -2,7 +2,7 @@
 
 ## Used technologies:
 -> Eslint + TS (linter -> ES2021) </br>
--> Testes unitários (jest) </br>
+-> Jest (unitary tests) </br>
 -> Typescript</br>
 -> TypeORM (migrations) </br>
 -> Redis (cache) </br>
