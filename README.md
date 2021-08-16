@@ -1,5 +1,6 @@
 # Backend em node
 
-## Testes unitários
-## Typescript
-## TypeORM
+## Desenvolvido com:
+-> Testes unitários
+-> Typescript
+-> TypeORM
