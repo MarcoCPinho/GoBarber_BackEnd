@@ -15,5 +15,11 @@
 
 
 ## Concepts applied:
--> SOLID; </br>
--> MVC
+-> SOLID (poo) </br>
+  S — Single Responsiblity Principle </br>
+  O — Open-Closed Principle </br>
+  L — Liskov Substitution Principle </br>
+  I — Interface Segregation Principle </br>
+  D — Dependency Inversion Principle </br>
+-> TDD (test-driven development) </br>
+-> MVC (model-view-controller)
