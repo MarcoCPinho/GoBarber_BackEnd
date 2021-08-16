@@ -1,4 +1,4 @@
-# Backend em node
+# Backend em NodeJS
 
 ## Desenvolvido com:
 -> Testes unitários</br>
