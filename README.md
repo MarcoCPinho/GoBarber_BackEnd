@@ -17,7 +17,7 @@
 ## Concepts applied:
 -> TDD (test-driven development) </br>
 -> MVC (model-view-controller) </br>
--> SOLID (poo) </br>
+-> SOLID (programming object oriented) </br>
   S — Single Responsiblity Principle </br>
   O — Open-Closed Principle </br>
   L — Liskov Substitution Principle </br>
