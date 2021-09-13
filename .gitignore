@@ -4,7 +4,7 @@
 build/
 temp/
 coverage
-ormconfig.json
+# ormconfig.json
 dist
 
 tmp/*
