@@ -7,7 +7,7 @@
 -> Redis (cache) </br>
 -> Postgres + Mongo (db) </br>
 -> AWS + NodeMailer + Handlebars (e-mail management and templates) </br>
--> JWT + Bcrypt (criptografias) </br>
+-> JWT + Bcrypt (encryptions) </br>
 -> Multer + Celebrate (middlewares) </br>
 -> DotEnv (enviroments management) </br>
 -> Express (api) </br>
